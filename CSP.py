@@ -1,22 +1,23 @@
 def solutions():
-    # letters = ('s', 'e', 'n', 'd', 'm', 'o', 'r', 'y')
-    all_solutions = list()
-    for s in range(9, -1, -1):
-        for e in range(9, -1, -1):
-            for n in range(9, -1, -1):
-                for d in range(9, -1, -1):
-                    for m in range(9, 0, -1):
-                        for o in range(9, -1, -1):
-                            for r in range(9, -1, -1):
-                                for y in range(9, -1, -1):
-                                    if len(set([s, e, n, d, m, o, r, y])) == 8:
-                                        send = 1000 * s + 100 * e + 10 * n + d
-                                        more = 1000 * m + 100 * o + 10 * r + e
-                                        money = 10000 * m + 1000 * o + 100 * n + 10 * e + y
+    all_solutions = []
+    for b in range(9, -1, -1):
+        for a in range(9, -1, -1):
+            for s in range(9, -1, -1):
+                for e in range(9, -1, -1):
+                    for l in range(9, -1, -1):
+                        for g in range(9, -1, -1):
+                            for m in range(9, -1, -1):
+                                if len(set([b, a, s, e, l, g, m])) == 7:
+                                    base = 1000 * b + 100 * a + 10 * s + e
+                                    ball = 1000 * b + 100 * a + 10 * l + l
+                                    games = 10000 * g + 1000 * a + 100 * m + 10 * e + s
+                                    if base + ball == games:
+                                        all_solutions.append((base, ball, games))
 
-                                        if send + more == money:
-                                            all_solutions.append(
-                                                (send, more, money))
+    print("BASE | BALL | GAMES")
+    for solution in all_solutions:
+        print(solution[0], "|", solution[1], "|", solution[2])
+
     return all_solutions
 
 
